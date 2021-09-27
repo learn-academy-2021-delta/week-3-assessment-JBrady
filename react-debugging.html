@@ -63,11 +63,15 @@
           // No need to change anything ABOVE this line ^
           
           return(
+            // Bug #1 - we need enclose all this in a fragment for it to render properly
+            <>
               <h1>Draw a Card</h1>
-              <button onClick={}>
+              {/* Bug #2 - Javascript cant find the drawCard method. We have to add the keyword 'this' to tell javascript to look at the drawCard function within the class App. */}
+              <button onClick={this.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              {/* Bug #3 - Javascript cant find the shuffle method. We have to add the keyword 'this' to tell javascript to look at the shuffle function within the class App. */}
+              <button onClick={this.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
@@ -79,6 +83,7 @@
                   )
                 })}
               </div>
+            </>
           )
         }
       }
